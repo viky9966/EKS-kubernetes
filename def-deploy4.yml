@@ -1,0 +1,22 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mynginx
+  labels:
+    type: proxy
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      type: proxy
+  template:
+    metadata:
+      name: mynginx
+      labels:
+        type: proxy
+    spec:
+      containers:
+        - name: mynginx
+          image: nginx
+            

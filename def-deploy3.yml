@@ -1,0 +1,26 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongo
+  labels:
+    type: mongo-db
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      type: mongo-db
+  template:
+    metadata:
+      labels:
+        type: mongo-db
+    spec:
+      containers:
+        - name: mongo-db
+          image: mongo
+          env:
+            - name: MONGO_INITDB_ROOT_USERNAME
+              value: viky
+          ports:
+            - containerPort: 8081
+              hostPort: 8081
