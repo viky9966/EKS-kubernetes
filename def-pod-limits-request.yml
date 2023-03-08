@@ -1,0 +1,19 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: jenkins
+  labels:
+    type: myjen
+spec:
+  containers:
+    - name: myjenkins
+      image: jenkins/jenkins
+      resources:
+        requests:
+          memory: "64mi"
+          cpu: "250mi"
+        limits:
+          memory: "120mi"
+          cpu: "500mi"
+...
