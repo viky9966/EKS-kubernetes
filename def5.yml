@@ -1,0 +1,33 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: linux-os
+  labels:
+    type: os
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      type: os
+  template:
+    metadata:
+      name: linux-os
+      labels:
+        type: os
+    spec:
+      containers:
+        - name: redhat-os
+          image: redhat/ubi8
+          stdin: true
+          tty: true
+
+        - name: ubuntu-os
+          image: ubuntu
+          stdin: true
+          tty: true
+
+        - name: centos-os
+          image: centos
+          stdin: true
+          tty: true

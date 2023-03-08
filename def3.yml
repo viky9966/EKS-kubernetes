@@ -1,0 +1,21 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: centos
+  labels:
+    type: os-centos
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      type: os-centos
+  template:
+    metadata:
+      name: centos
+      labels:
+        type: os-centos
+    spec:
+      containers:
+        - name: centos-os
+          image: centos

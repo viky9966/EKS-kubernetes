@@ -1,0 +1,21 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redhat
+  labels:
+    type: os-redhat
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      type: os-redhat
+  template:
+    metadata:
+      name: redhat
+      labels:
+        type: os-redhat
+    spec:
+      containers:
+        - name: redhat-os
+          image: redhat/ubi8

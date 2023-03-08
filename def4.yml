@@ -1,0 +1,21 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ubuntu
+  labels:
+    type: os-ubuntu
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      type: os-ubuntu
+  template:
+    metadata:
+      name: ubuntu
+      labels:
+        type: os-ubuntu
+    spec:
+      containers:
+        - name: ubunut-os
+          image: ubuntu
